@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { PostsRoute } from "./routes/posts.route";
+import swaggerUi from "swagger-ui-express";
+import openApiDocument from "../docs/openapi.json";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -18,9 +20,9 @@ app.get("/", (req, res) => {
 
 
 
-
 app.use("/api/posts", PostsRoute);
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openApiDocument));
 // รัน server เองเฉพาะ local / VPS — บน Vercel ใช้ handler ไม่ listen
 if (!process.env.VERCEL) {
   app.listen(port, () => {
