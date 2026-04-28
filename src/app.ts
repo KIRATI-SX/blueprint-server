@@ -8,17 +8,20 @@ import openApiDocument from "../docs/openapi.json";
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(cors(
-
-));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // Frontend local (Vite)
+      "http://localhost:3000", // Frontend local (React แบบอื่น)
+      "https://blueprint-app-zeta.vercel.app/", // Frontend ที่ Deploy แล้ว
+    ],
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
   return res.status(200).json({ message: "Blueprint Server" });
 });
-
-
-
 
 app.use("/api/posts", PostsRoute);
 
