@@ -13,6 +13,9 @@ node_modules
 
 # Documentation
 docs/
+docs/*
+
+
 # Build output
 dist/
 
