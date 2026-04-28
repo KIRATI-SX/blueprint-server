@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1777271353566,
+      "tag": "0000_groovy_puma",
+      "breakpoints": true
+    }
+  ]
+}
